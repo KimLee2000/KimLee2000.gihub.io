@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kim李旺AI - 个人介绍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A2A5E',
+                        light: '#F8FAFC',
+                        lightBlue: '#EFF3F8'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .backdrop-blur {
+                backdrop-filter: blur(20px);
+            }
+            .text-shadow-sm {
+                text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            }
+            .transition-all-300 {
+                transition: all 300ms ease-in-out;
+            }
+            .hover-scale {
+                transition: transform 300ms ease-in-out;
+            }
+            .hover-scale:hover {
+                transform: scale(1.05);
+            }
+            .hover-lift {
+                transition: all 300ms ease-in-out;
+            }
+            .hover-lift:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+        }
+    </style>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        .menu-toggle {
+            transition: all 300ms ease-in-out;
+        }
+        .menu-toggle.active {
+            transform: rotate(90deg);
+        }
+        .menu-panel {
+            transition: all 300ms ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        .menu-panel.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .tag {
+            transition: all 300ms ease-in-out;
+        }
+        .tag:hover {
+            background-color: #0A2A5E;
+            color: white;
+        }
+        .work-item {
+            transition: all 300ms ease-in-out;
+        }
+        .work-item:hover {
+            background-color: rgba(10, 42, 94, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-light min-h-screen">
+    <!-- 目录菜单 -->
+    <div class="fixed top-5 right-[18px] z-50">
+        <button id="menuToggle" class="menu-toggle bg-primary/90 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div id="menuPanel" class="menu-panel fixed top-14 right-[18px] bg-white/80 backdrop-blur rounded-2xl shadow-xl p-4 w-64">
+            <ul class="space-y-3">
+                <li><a href="#hero" class="block py-2 px-4 rounded-lg hover:bg-primary/10 transition-all-300">我是谁</a></li>
+                <li><a href="#tags" class="block py-2 px-4 rounded-lg hover:bg-primary/10 transition-all-300">我做什么</a></li>
+                <li><a href="#douyin" class="block py-2 px-4 rounded-lg hover:bg-primary/10 transition-all-300">抖音主页</a></li>
+                <li><a href="#platforms" class="block py-2 px-4 rounded-lg hover:bg-primary/10 transition-all-300">社交平台</a></li>
+                <li><a href="#works" class="block py-2 px-4 rounded-lg hover:bg-primary/10 transition-all-300">精选作品</a></li>
+                <li><a href="#story" class="block py-2 px-4 rounded-lg hover:bg-primary/10 transition-all-300">我的故事</a></li>
+                <li><a href="#public" class="block py-2 px-4 rounded-lg hover:bg-primary/10 transition-all-300">公众号</a></li>
+                <li><a href="#footer" class="block py-2 px-4 rounded-lg hover:bg-primary/10 transition-all-300">结尾</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 1. 顶部英雄区 -->
+    <section id="hero" class="min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-light to-lightBlue px-4">
+        <div class="max-w-2xl mx-auto text-center fade-in">
+            <h1 class="text-5xl md:text-7xl font-black text-primary mb-8 text-shadow-sm">Kim李旺AI</h1>
+            <div class="space-y-4 text-gray-600 text-lg md:text-xl font-light leading-relaxed">
+                <p>中德英韩四国语言</p>
+                <p>创意导演丨AIGC创作者丨表达者</p>
+                <p>坚持做视频100年，已完成11年</p>
+                <p>合作+JSwangzai</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 标签云区域 -->
+    <section id="tags" class="py-16 px-4">
+        <div class="max-w-2xl mx-auto">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <span class="tag border-2 border-primary text-primary rounded-full px-4 py-2 font-medium text-sm">AI创业</span>
+                <span class="tag border-2 border-primary text-primary rounded-full px-4 py-2 font-medium text-sm">新媒体</span>
+                <span class="tag border-2 border-primary text-primary rounded-full px-4 py-2 font-medium text-sm">影视</span>
+                <span class="tag border-2 border-primary text-primary rounded-full px-4 py-2 font-medium text-sm">知识分享</span>
+                <span class="tag border-2 border-primary text-primary rounded-full px-4 py-2 font-medium text-sm">教学陪跑</span>
+                <span class="tag border-2 border-primary text-primary rounded-full px-4 py-2 font-medium text-sm">视觉艺术</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 抖音主页截图 -->
+    <section id="douyin" class="py-8 px-4">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-md p-5 hover-lift">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-semibold text-primary">抖音主页</h2>
+                    <i class="fa fa-tiktok text-gray-500"></i>
+                </div>
+                <div class="aspect-[4/3] rounded-xl overflow-hidden">
+                    <img src="images/douyin.png" alt="抖音主页截图" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 三个平台图标 -->
+    <section id="platforms" class="py-8 px-4">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-md p-5">
+                <h2 class="text-xl font-semibold text-primary mb-6">我的社交平台</h2>
+                <div class="flex justify-between gap-4">
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="w-20 h-20 rounded-16 overflow-hidden hover-scale mb-3">
+                            <img src="images/bili.png" alt="B站" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-gray-600">B站</span>
+                    </div>
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="w-20 h-20 rounded-16 overflow-hidden hover-scale mb-3">
+                            <img src="images/xiaohongshu.jpg" alt="小红书" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-gray-600">小红书</span>
+                    </div>
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="w-20 h-20 rounded-16 overflow-hidden hover-scale mb-3">
+                            <img src="images/shipinhao.jpg" alt="视频号" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-gray-600">视频号</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 三个作品展示 -->
+    <section id="works" class="py-8 px-4">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-md p-5">
+                <h2 class="text-xl font-semibold text-primary mb-6">精选作品</h2>
+                <div class="space-y-6">
+                    <div class="work-item flex gap-4 p-4 rounded-xl">
+                        <div class="w-1/3 aspect-[4/3] rounded-xl overflow-hidden">
+                            <img src="images/work1.png" alt="作品1" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3 flex flex-col justify-center">
+                            <h3 class="text-lg font-bold text-primary mb-2">《追觅汽车，你的超智能伙伴》</h3>
+                            <a href="http://xhslink.com/o/1q9TGbbtbxR" target="_blank" class="text-primary underline">观看视频</a>
+                        </div>
+                    </div>
+                    <div class="work-item flex gap-4 p-4 rounded-xl">
+                        <div class="w-1/3 aspect-[4/3] rounded-xl overflow-hidden">
+                            <img src="images/work2.jpg" alt="作品2" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3 flex flex-col justify-center">
+                            <h3 class="text-lg font-bold text-primary mb-2">《去了一趟火星。》</h3>
+                            <a href="https://b23.tv/Fftmefp" target="_blank" class="text-primary underline">观看视频</a>
+                        </div>
+                    </div>
+                    <div class="work-item flex gap-4 p-4 rounded-xl">
+                        <div class="w-1/3 aspect-[4/3] rounded-xl overflow-hidden">
+                            <img src="images/work3.png" alt="作品3" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-2/3 flex flex-col justify-center">
+                            <h3 class="text-lg font-bold text-primary mb-2">《飞宇pocket3测评》</h3>
+                            <a href="https://b23.tv/xiEVupf" target="_blank" class="text-primary underline">观看视频</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 故事长文字 -->
+    <section id="story" class="py-8 px-4">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-md p-6">
+                <h2 class="text-xl font-semibold text-primary mb-6">我的故事</h2>
+                <div class="space-y-4 text-gray-600 leading-relaxed">
+                    <p>我从初中14年开始尝试做游戏解说视频，到今天为止做了11年视频了。</p>
+                    <p>做过这些——游戏/生活/汽车/音乐/美食探店/手机数码</p>
+                    <p class="font-bold text-primary">我的slogan是“坚持做视频100年，我是旺仔”。</p>
+                    <p>我不确定自己能坚持多少年。100年肯定不可能，活不到。但我想试试，在有限的时间里，能完成多少表达。</p>
+                    <p>如果你也在做视频，或者正准备做第一个片子，我想对你说：</p>
+                    <p>技术永远在迭代，工具永远在更新，但你想表达的冲动，才是所有0变成1的那个助燃剂。</p>
+                    <p>祝你也能找到属于自己的“无限进步”。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 公众号图片 -->
+    <section id="public" class="py-8 px-4">
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-md p-5 text-center">
+                <h2 class="text-xl font-semibold text-primary mb-6">关注我的公众号</h2>
+                <div class="aspect-[4/3] rounded-xl overflow-hidden mx-auto mb-4">
+                    <img src="images/gongzhonghao.png" alt="公众号二维码" class="w-full h-full object-cover">
+                </div>
+                <p class="text-gray-600">扫码关注，获取更多精彩内容</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. 结尾语 -->
+    <section id="footer" class="py-16 px-4">
+        <div class="max-w-2xl mx-auto text-center">
+            <p class="text-lg text-gray-600">感谢收看我的个人介绍，祝你越来越好</p>
+        </div>
+    </section>
+
+    <script>
+        // 菜单切换功能
+        const menuToggle = document.getElementById('menuToggle');
+        const menuPanel = document.getElementById('menuPanel');
+        const menuLinks = menuPanel.querySelectorAll('a');
+
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            menuPanel.classList.toggle('active');
+        });
+
+        // 点击菜单项后关闭菜单并滚动
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                menuToggle.classList.remove('active');
+                menuPanel.classList.remove('active');
+            });
+        });
+
+        // 点击页面其他地方关闭菜单
+        document.addEventListener('click', function(event) {
+            if (!menuToggle.contains(event.target) && !menuPanel.contains(event.target)) {
+                menuToggle.classList.remove('active');
+                menuPanel.classList.remove('active');
+            }
+        });
+
+        // 滚动时的淡入效果
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有主要区域
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
